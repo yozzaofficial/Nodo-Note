@@ -1,0 +1,47 @@
+.swipe-complete {
+  position: relative;
+  border-radius: var(--radius-3xl);
+  overflow: hidden;
+}
+
+.swipe-complete-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 24px;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: var(--radius-3xl);
+  transition: opacity 0.15s ease;
+}
+
+.swipe-complete-content {
+  position: relative;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.swipe-complete-content * {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.swipe-complete-content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(186, 26, 26, 0.18);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.swipe-complete-content.swipe-complete-holding::after {
+  opacity: 1;
+  transition: opacity var(--hold-duration, 2000ms) linear;
+}

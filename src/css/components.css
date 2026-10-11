@@ -1,0 +1,209 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-on-background);
+}
+
+button {
+  font-family: var(--font-family);
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+.icon-svg {
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 var(--space-container-margin);
+  padding-bottom: 120px;
+}
+
+/* Search input */
+.search-bar {
+  position: relative;
+}
+.search-bar .icon-svg {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-outline);
+  pointer-events: none;
+}
+.search-bar input {
+  width: 100%;
+  border: none;
+  border-radius: var(--radius-xl);
+  background: var(--color-surface-container-low);
+  padding: 14px 16px 14px 44px;
+  font-family: var(--font-family);
+  font-size: 16px;
+  color: var(--color-on-surface);
+  outline: none;
+  transition: box-shadow 0.15s ease;
+}
+.search-bar input:focus {
+  box-shadow: 0 0 0 2px rgba(75, 78, 251, 0.2);
+}
+.search-bar input::placeholder {
+  color: var(--color-outline);
+}
+
+/* Card (note / task) */
+.card {
+  background: var(--color-surface-container-lowest);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-3xl);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-container-margin);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:active {
+  transform: scale(0.98);
+}
+.card:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+}
+
+.section-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-outline);
+}
+
+.fab {
+  position: fixed;
+  bottom: calc(96px + env(safe-area-inset-bottom));
+  right: 24px;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(75, 78, 251, 0.35);
+  transition: transform 0.15s ease;
+  z-index: 40;
+}
+.fab:active {
+  transform: scale(0.9);
+}
+
+.fab-secondary {
+  bottom: calc(172px + env(safe-area-inset-bottom));
+  width: 52px;
+  height: 52px;
+  background: var(--color-surface-container-lowest);
+  color: var(--color-primary);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+.fab-secondary:disabled {
+  opacity: 0.6;
+}
+
+.photo-processing-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 27, 43, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+}
+.photo-processing-card {
+  background: var(--color-surface-container-lowest);
+  border-radius: var(--radius-xl);
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-on-surface);
+  font-weight: 600;
+  max-width: 280px;
+  text-align: center;
+}
+.photo-processing-spinner {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  border: 3px solid var(--color-outline-variant);
+  border-top-color: var(--color-primary);
+  animation: photo-processing-spin 0.8s linear infinite;
+}
+@keyframes photo-processing-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.checkbox-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-outline-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.checkbox-circle.checked {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.primary-button {
+  width: 100%;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-weight: 700;
+  font-size: 18px;
+  padding: 16px;
+  border-radius: var(--radius-3xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.primary-button:active {
+  transform: scale(0.97);
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--color-outline);
+  padding: 48px 16px;
+  font-size: 15px;
+}
+
+.icon-button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  color: var(--color-on-surface);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.icon-button:active {
+  transform: scale(0.9);
+}

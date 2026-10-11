@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "inter";
+  src: url("./assets/font/Inter_24pt-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  background: var(--color-background);
+}
+
+body {
+  font-family: inter;
+  min-height: 100svh;
+  margin: 0;
+  background: var(--color-background);
+}

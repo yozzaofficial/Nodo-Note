@@ -1,0 +1,187 @@
+.recording-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--color-background);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.recording-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px var(--space-container-margin);
+  padding-top: calc(16px + env(safe-area-inset-top));
+  z-index: 10;
+}
+.recording-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.recording-header-left h1 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-on-surface);
+}
+.recording-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-error);
+  animation: recording-blink 1.4s ease-in-out infinite;
+}
+@keyframes recording-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+.recording-close {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-container);
+  color: var(--color-on-surface-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.recording-close:active {
+  transform: scale(0.9);
+}
+
+.recording-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0 var(--space-container-margin);
+}
+
+.recording-shader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.4;
+  height: 50%;
+  margin: auto 0;
+  pointer-events: none;
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.recording-timer {
+  z-index: 1;
+  text-align: center;
+  margin-bottom: var(--space-stack-lg);
+}
+.recording-timer span {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-on-surface);
+}
+.recording-timer p {
+  margin: 8px 0 0;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-on-surface-variant);
+}
+
+.recording-button-wrap {
+  position: relative;
+  z-index: 1;
+}
+.recording-pulse-ring {
+  position: absolute;
+  inset: -24px;
+  background: rgba(75, 78, 251, 0.2);
+  border-radius: var(--radius-full);
+  animation: recording-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes recording-pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+.recording-main-btn {
+  position: relative;
+  width: 192px;
+  height: 192px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(75, 78, 251, 0.3);
+  transition: transform 0.3s ease;
+}
+.recording-main-btn:active {
+  transform: scale(0.9);
+}
+.recording-main-btn:disabled {
+  opacity: 0.6;
+}
+.recording-main-btn-error {
+  background: var(--color-error);
+}
+
+.recording-footer {
+  padding: 24px var(--space-container-margin) 48px;
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  z-index: 1;
+}
+.recording-secondary-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--color-on-surface-variant);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.recording-secondary-btn:active {
+  transform: scale(0.95);
+}
+.recording-secondary-btn:disabled {
+  opacity: 0.4;
+}
+.recording-secondary-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-container);
+  color: var(--color-on-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.recording-secondary-icon-error {
+  background: var(--color-error-container);
+  color: var(--color-on-error-container);
+}

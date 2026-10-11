@@ -1,0 +1,190 @@
+.note-detail-screen {
+  min-height: 100vh;
+  padding-bottom: 120px;
+  background: var(--color-background);
+}
+
+.note-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px var(--space-container-margin);
+  padding-top: calc(16px + env(safe-area-inset-top));
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--color-background);
+}
+.note-detail-header-left,
+.note-detail-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.note-detail-header h1 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  white-space: nowrap;
+  color: var(--color-on-surface);
+}
+.note-detail-avatar {
+  width: 32px;
+  height: 32px;
+}
+
+.note-detail-meta {
+  display: flex;
+  gap: 16px;
+  margin-bottom: var(--space-stack-sm);
+  color: var(--color-on-surface-variant);
+  font-size: 13px;
+}
+.note-detail-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.note-detail-title {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 var(--space-stack-md);
+  color: var(--color-on-surface);
+}
+
+.note-detail-reminder {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-container);
+  color: var(--color-on-primary-container);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: var(--space-stack-md);
+}
+
+.note-detail-section {
+  margin-bottom: var(--space-stack-lg);
+}
+.note-detail-audio {
+  width: 100%;
+  height: 40px;
+  border-radius: var(--radius-full);
+}
+.note-detail-section-title {
+  color: var(--color-primary);
+  margin-bottom: 16px;
+  display: block;
+}
+.note-detail-transcription {
+  cursor: default;
+}
+.note-detail-transcription:active {
+  transform: none;
+}
+.note-detail-transcription p {
+  margin: 0;
+  color: var(--color-on-surface-variant);
+  font-size: 18px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.note-detail-subtasks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: var(--color-surface-container-low);
+  border-radius: var(--radius-2xl);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.task-toggle-row-done {
+  background: var(--color-surface-container);
+}
+.task-toggle-label {
+  flex: 1;
+  font-size: 16px;
+  color: var(--color-on-surface);
+  cursor: pointer;
+}
+.task-toggle-label-done {
+  color: var(--color-outline);
+  text-decoration: line-through;
+}
+
+.subtask-add-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border: 1.5px dashed var(--color-outline-variant);
+  border-radius: var(--radius-2xl);
+  color: var(--color-outline);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+.subtask-add-row:active {
+  transform: scale(0.98);
+}
+.subtask-add-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.subtask-add-row-recording {
+  border-style: solid;
+  border-color: var(--color-error);
+  color: var(--color-error);
+  background: var(--color-error-container);
+}
+.subtask-add-row-recording .subtask-add-icon {
+  animation: subtask-mic-pulse 1.4s ease-in-out infinite;
+}
+.subtask-add-row-processing {
+  border-style: solid;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+@keyframes subtask-mic-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.note-detail-action {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px var(--space-container-margin) calc(32px + env(safe-area-inset-bottom));
+  background: rgba(249, 249, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid var(--color-surface-variant);
+  display: flex;
+  justify-content: center;
+}
+html.dark .note-detail-action {
+  background: rgba(16, 21, 31, 0.85);
+}
+.note-detail-action .primary-button {
+  max-width: 420px;
+}

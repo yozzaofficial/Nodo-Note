@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDisplayName</key>
+	<string>NodoNote</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>NodoNote ha bisogno del microfono per registrare le tue note vocali.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>NodoNote ha bisogno della fotocamera per acquisire testo dalle foto e creare i tuoi task.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>NodoNote ha bisogno di accedere alle foto per acquisire testo e creare i tuoi task.</string>
+</dict>
+</plist>

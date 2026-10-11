@@ -1,0 +1,63 @@
+.mainHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px var(--space-container-margin);
+  padding-top: calc(16px + env(safe-area-inset-top));
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--color-background);
+  margin-bottom: 30px;
+}
+.mainHeader h1 {
+  font-weight: 700;
+  font-size: 24px;
+  margin: 0;
+  color: var(--color-on-surface);
+}
+.profile-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.mainFooter {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  padding: 8px 0 calc(16px + env(safe-area-inset-bottom));
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.03);
+  background: var(--color-surface);
+  z-index: 50;
+}
+.menu {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.menu-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  color: var(--color-on-surface-variant);
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease;
+}
+.menu-link-active {
+  color: var(--color-primary);
+}
+.menu-link:active {
+  transform: scale(0.9);
+}
+.menu-link-active {
+  background: var(--color-surface-container-highest);
+}
